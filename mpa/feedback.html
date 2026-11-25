@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Дудка Назарій, ІПЗс-24-1">
+  <meta name="description" content="Сторінка альбому «Полонина» гурту «Гірський туман»: трек-лист, прев'ю треків і інші релізи лейблу.">
+  <title>Відгуки — «Полонина» (MPA) | Практична робота №5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;family=Montserrat:wght@600;700&amp;display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <!-- MPA: лише таймер сесії, який обнуляється на кожній новій сторінці -->
+  <script src="mpa.js" defer></script>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <a class="brand" href="catalog.html">
+        <svg class="brand__logo" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M24 9 15 22h5l-7 9h7l-6 8h20l-6-8h7l-7-9h5Z" fill="currentColor"/>
+          <path d="M24 39v4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__name">Смерека Records</span>
+      </a>
+      <nav class="site-nav" aria-label="Сторінки сайту">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="catalog.html">Огляд</a></li>
+          <li><a class="site-nav__link" href="about.html">Про альбом</a></li>
+          <li><a class="site-nav__link is-active" aria-current="page" href="feedback.html">Відгуки</a></li>
+        </ul>
+      </nav>
+      <div class="session" role="group" aria-label="Монітор стану сесії">
+        <p class="session__item"><span class="session__label">Сесія</span> <time class="session__value" data-part="session-time" datetime="PT0S">00:00</time></p>
+        <p class="session__item"><span class="session__label">Переходи</span> <span class="session__value" data-part="route-count">—</span></p>
+      </div>
+    </header>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" aria-label="Інформація про реліз">
+      <picture class="sidebar__cover">
+        <source type="image/webp"
+                srcset="../polonyna-400.webp 400w, ../polonyna-800.webp 800w, ../polonyna-1200.webp 1200w"
+                sizes="(max-width: 860px) min(100vw - 32px, 360px), 320px">
+        <img class="sidebar__img" src="../polonyna-800.jpg" width="800" height="800"
+             alt="Обкладинка альбому: нічні Карпати, ряди гірських хребтів зі смереками, туман у долині й місяць над вершинами"
+             fetchpriority="high" decoding="async">
+      </picture>
+
+      <dl class="meta">
+        <div class="meta__row"><dt>Виконавець</dt><dd>Гірський туман</dd></div>
+        <div class="meta__row"><dt>Рік</dt><dd><time datetime="2026-10-02">2 жовтня 2026</time></dd></div>
+        <div class="meta__row"><dt>Жанр</dt><dd>Ambient, етно</dd></div>
+        <div class="meta__row"><dt>Лейбл</dt><dd>Смерека Records</dd></div>
+      </dl>
+
+      <div class="actions actions--mpa">
+        <a class="btn btn--primary" href="#player">
+          <svg class="btn__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg>
+          Слухати прев'ю
+        </a>
+      </div>
+      <p class="sidebar__status" role="status" data-part="action-status"></p>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="content">
+      <p class="mpa-note">Це MPA-версія для порівняння: кожен пункт меню відкриває окремий HTML-файл. <a href="../index.html#feedback">Відкрити SPA-версію</a></p>
+      <section class="hero" aria-labelledby="album-title">
+        <p class="hero__type">Альбом, 8 треків</p>
+        <h1 class="hero__title" id="album-title">Полонина</h1>
+        <p class="hero__artist">Гірський туман</p>
+        <ul class="tags" aria-label="Жанри">
+          <li class="tag">Ambient</li>
+          <li class="tag">Етно</li>
+          <li class="tag">Польові записи</li>
+        </ul>
+      </section>
+
+      <section class="panel reviews" id="feedback" aria-labelledby="reviews-title">
+        <div class="reviews__head">
+          <h2 class="panel__title" id="reviews-title">Відгуки слухачів</h2>
+          <p class="reviews__summary" aria-live="polite">
+            <span data-part="reviews-count">2 відгуки</span>, середня оцінка <span data-part="reviews-avg">4,5</span> з 5
+          </p>
+        </div>
+
+        <ol class="reviews__list" data-part="reviews-list">
+          <li class="review" data-rating="5">
+            <article class="review__card">
+              <header class="review__head">
+                <h3 class="review__name">Олеся</h3>
+                <p class="review__stars"><span class="visually-hidden">Оцінка 5 з 5</span><span aria-hidden="true">★★★★★</span></p>
+              </header>
+              <p class="review__text">«Полонина вночі» звучить так, ніби стоїш на хребті й чуєш вітер. Слухаю перед сном.</p>
+              <p class="review__date"><time datetime="2026-10-05">5 жовтня 2026</time></p>
+            </article>
+          </li>
+          <li class="review" data-rating="4">
+            <article class="review__card">
+              <header class="review__head">
+                <h3 class="review__name">Тарас</h3>
+                <p class="review__stars"><span class="visually-hidden">Оцінка 4 з 5</span><span aria-hidden="true">★★★★☆</span></p>
+              </header>
+              <p class="review__text">Сторона B світліша, «Світанок у Ворохті» найкращий трек. Хотілося б довшу версію «Ватри».</p>
+              <p class="review__date"><time datetime="2026-10-11">11 жовтня 2026</time></p>
+            </article>
+          </li>
+        </ol>
+
+        <form class="review-form" data-part="review-form" action="feedback.html" method="get">
+          <h3 class="review-form__title">Залишити відгук</h3>
+
+          <div class="review-form__row">
+            <div class="field">
+              <label class="field__label" for="review-name">Ваше ім'я</label>
+              <input class="field__input" type="text" id="review-name" name="name" autocomplete="given-name"
+                     required minlength="2" maxlength="40" aria-describedby="review-name-error">
+              <p class="field__error" id="review-name-error" data-error-for="review-name"></p>
+            </div>
+
+            <fieldset class="rating">
+              <legend class="field__label">Оцінка</legend>
+              <div class="rating__stars" data-part="rating-stars">
+                <input class="rating__input" type="radio" id="rate-1" name="rating" value="1" required>
+                <label class="rating__star" for="rate-1" data-value="1"><span class="visually-hidden">1 з 5</span></label>
+                <input class="rating__input" type="radio" id="rate-2" name="rating" value="2">
+                <label class="rating__star" for="rate-2" data-value="2"><span class="visually-hidden">2 з 5</span></label>
+                <input class="rating__input" type="radio" id="rate-3" name="rating" value="3">
+                <label class="rating__star" for="rate-3" data-value="3"><span class="visually-hidden">3 з 5</span></label>
+                <input class="rating__input" type="radio" id="rate-4" name="rating" value="4">
+                <label class="rating__star" for="rate-4" data-value="4"><span class="visually-hidden">4 з 5</span></label>
+                <input class="rating__input" type="radio" id="rate-5" name="rating" value="5">
+                <label class="rating__star" for="rate-5" data-value="5"><span class="visually-hidden">5 з 5</span></label>
+              </div>
+              <p class="field__error" data-error-for="rating"></p>
+            </fieldset>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="review-text">Відгук</label>
+            <textarea class="field__input field__input--area" id="review-text" name="text" rows="4"
+                      required minlength="10" maxlength="300" aria-describedby="review-text-counter review-text-error"></textarea>
+            <div class="field__meta">
+              <p class="field__error" id="review-text-error" data-error-for="review-text"></p>
+              <p class="field__counter" id="review-text-counter" data-part="text-counter">0 / 300</p>
+            </div>
+          </div>
+
+          <div class="review-form__actions">
+            <button class="btn btn--primary" type="submit">Надіслати відгук</button>
+            <p class="review-form__status" role="status" data-part="form-status"></p>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <p>© 2026 Смерека Records. Музика й обкладинки створені для навчального проєкту.</p>
+      <p>Практична робота №5 (MPA-версія). Дудка Назарій, ІПЗс-24-1, Університет Короля Данила. <a href="mpa/catalog.html">Порівняти з MPA-версією</a></p>
+    </footer>
+
+    <!-- ===== GLOBAL PLAYER ===== -->
+    <section class="player" id="player" aria-label="Аудіоплеєр">
+      <div class="player__now">
+        <span class="eq" aria-hidden="true"><span></span><span></span><span></span></span>
+        <p class="player__track">
+          <span class="player__label">Зараз грає</span>
+          <span class="player__title" data-part="now-title">1. Туман над Говерлою</span>
+        </p>
+      </div>
+      <audio class="player__audio" controls preload="metadata" data-part="audio">
+        <source src="../polonyna-sampler.ogg" type="audio/ogg; codecs=opus">
+        <source src="../polonyna-sampler.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує аудіо. <a href="../polonyna-sampler.mp3">Завантажте прев'ю у форматі MP3</a>.
+      </audio>
+    </section>
+  </div>
+
+</body>
+</html>

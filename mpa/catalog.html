@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Дудка Назарій, ІПЗс-24-1">
+  <meta name="description" content="Сторінка альбому «Полонина» гурту «Гірський туман»: трек-лист, прев'ю треків і інші релізи лейблу.">
+  <title>Огляд — «Полонина» (MPA) | Практична робота №5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;family=Montserrat:wght@600;700&amp;display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <!-- MPA: лише таймер сесії, який обнуляється на кожній новій сторінці -->
+  <script src="mpa.js" defer></script>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+      <a class="brand" href="catalog.html">
+        <svg class="brand__logo" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M24 9 15 22h5l-7 9h7l-6 8h20l-6-8h7l-7-9h5Z" fill="currentColor"/>
+          <path d="M24 39v4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__name">Смерека Records</span>
+      </a>
+      <nav class="site-nav" aria-label="Сторінки сайту">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link is-active" aria-current="page" href="catalog.html">Огляд</a></li>
+          <li><a class="site-nav__link" href="about.html">Про альбом</a></li>
+          <li><a class="site-nav__link" href="feedback.html">Відгуки</a></li>
+        </ul>
+      </nav>
+      <div class="session" role="group" aria-label="Монітор стану сесії">
+        <p class="session__item"><span class="session__label">Сесія</span> <time class="session__value" data-part="session-time" datetime="PT0S">00:00</time></p>
+        <p class="session__item"><span class="session__label">Переходи</span> <span class="session__value" data-part="route-count">—</span></p>
+      </div>
+    </header>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" aria-label="Інформація про реліз">
+      <picture class="sidebar__cover">
+        <source type="image/webp"
+                srcset="../polonyna-400.webp 400w, ../polonyna-800.webp 800w, ../polonyna-1200.webp 1200w"
+                sizes="(max-width: 860px) min(100vw - 32px, 360px), 320px">
+        <img class="sidebar__img" src="../polonyna-800.jpg" width="800" height="800"
+             alt="Обкладинка альбому: нічні Карпати, ряди гірських хребтів зі смереками, туман у долині й місяць над вершинами"
+             fetchpriority="high" decoding="async">
+      </picture>
+
+      <dl class="meta">
+        <div class="meta__row"><dt>Виконавець</dt><dd>Гірський туман</dd></div>
+        <div class="meta__row"><dt>Рік</dt><dd><time datetime="2026-10-02">2 жовтня 2026</time></dd></div>
+        <div class="meta__row"><dt>Жанр</dt><dd>Ambient, етно</dd></div>
+        <div class="meta__row"><dt>Лейбл</dt><dd>Смерека Records</dd></div>
+      </dl>
+
+      <div class="actions actions--mpa">
+        <a class="btn btn--primary" href="#player">
+          <svg class="btn__icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg>
+          Слухати прев'ю
+        </a>
+      </div>
+      <p class="sidebar__status" role="status" data-part="action-status"></p>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="content">
+      <p class="mpa-note">Це MPA-версія для порівняння: кожен пункт меню відкриває окремий HTML-файл. <a href="../index.html#catalog">Відкрити SPA-версію</a></p>
+      <section class="hero" aria-labelledby="album-title">
+        <p class="hero__type">Альбом, 8 треків</p>
+        <h1 class="hero__title" id="album-title">Полонина</h1>
+        <p class="hero__artist">Гірський туман</p>
+        <ul class="tags" aria-label="Жанри">
+          <li class="tag">Ambient</li>
+          <li class="tag">Етно</li>
+          <li class="tag">Польові записи</li>
+        </ul>
+      </section>
+
+      <section class="panel" id="catalog" aria-labelledby="tracklist-title">
+        <h2 class="panel__title" id="tracklist-title">Трек-лист</h2>
+        <div class="table-wrap">
+          <table class="tracks">
+            <caption class="visually-hidden">Трек-лист альбому «Полонина»: дві сторони по чотири треки, тривалість і кнопка прев'ю</caption>
+            <thead>
+              <tr>
+                <th scope="col" class="tracks__side-col"><span class="th-long">Сторона</span><span class="th-short" aria-hidden="true">Ст.</span></th>
+                <th scope="col">№</th>
+                <th scope="col">Назва</th>
+                <th scope="col" class="tracks__num"><span class="th-long">Тривалість</span><span class="th-short" aria-hidden="true">Час</span></th>
+                <th scope="col" class="tracks__num"><span class="th-long">Прев'ю</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-track="0">
+                <th scope="rowgroup" rowspan="4" class="tracks__side"><span>A</span></th>
+                <td>1</td>
+                <td class="tracks__name">Туман над Говерлою</td>
+                <td class="tracks__num"><time datetime="PT4M12S">4:12</time></td>
+                <td class="tracks__num"><button class="play" type="button" aria-label="Слухати прев'ю: Туман над Говерлою"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr data-track="1">
+                <td>2</td>
+                <td class="tracks__name">Смерекова колискова</td>
+                <td class="tracks__num"><time datetime="PT3M48S">3:48</time></td>
+                <td class="tracks__num"><button class="play" type="button" aria-label="Слухати прев'ю: Смерекова колискова"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr data-track="2">
+                <td>3</td>
+                <td class="tracks__name">Полонина вночі</td>
+                <td class="tracks__num"><time datetime="PT5M6S">5:06</time></td>
+                <td class="tracks__num"><button class="play" type="button" aria-label="Слухати прев'ю: Полонина вночі"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr data-track="3">
+                <td>4</td>
+                <td class="tracks__name">Дзвоники отари</td>
+                <td class="tracks__num"><time datetime="PT3M27S">3:27</time></td>
+                <td class="tracks__num"><button class="play" type="button" aria-label="Слухати прев'ю: Дзвоники отари"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></button></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr data-track="4">
+                <th scope="rowgroup" rowspan="4" class="tracks__side"><span>B</span></th>
+                <td>5</td>
+                <td class="tracks__name">Черемош</td>
+                <td class="tracks__num"><time datetime="PT4M41S">4:41</time></td>
+                <td class="tracks__num"><button class="play" type="button" aria-label="Слухати прев'ю: Черемош"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr data-track="5">
+                <td>6</td>
+                <td class="tracks__name">Ватра</td>
+                <td class="tracks__num"><time datetime="PT3M55S">3:55</time></td>
+                <td class="tracks__num"><button class="play" type="button" aria-label="Слухати прев'ю: Ватра"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr data-track="6">
+                <td>7</td>
+                <td class="tracks__name">Зоряна стежка</td>
+                <td class="tracks__num"><time datetime="PT4M18S">4:18</time></td>
+                <td class="tracks__num"><button class="play" type="button" aria-label="Слухати прев'ю: Зоряна стежка"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></button></td>
+              </tr>
+              <tr data-track="7">
+                <td>8</td>
+                <td class="tracks__name">Світанок у Ворохті</td>
+                <td class="tracks__num"><time datetime="PT5M32S">5:32</time></td>
+                <td class="tracks__num"><button class="play" type="button" aria-label="Слухати прев'ю: Світанок у Ворохті"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5Z" fill="currentColor"/></svg></button></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="3">Разом: 8 треків</th>
+                <td class="tracks__num"><time datetime="PT34M59S">34:59</time></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <p>© 2026 Смерека Records. Музика й обкладинки створені для навчального проєкту.</p>
+      <p>Практична робота №5 (MPA-версія). Дудка Назарій, ІПЗс-24-1, Університет Короля Данила. <a href="mpa/catalog.html">Порівняти з MPA-версією</a></p>
+    </footer>
+
+    <!-- ===== GLOBAL PLAYER ===== -->
+    <section class="player" id="player" aria-label="Аудіоплеєр">
+      <div class="player__now">
+        <span class="eq" aria-hidden="true"><span></span><span></span><span></span></span>
+        <p class="player__track">
+          <span class="player__label">Зараз грає</span>
+          <span class="player__title" data-part="now-title">1. Туман над Говерлою</span>
+        </p>
+      </div>
+      <audio class="player__audio" controls preload="metadata" data-part="audio">
+        <source src="../polonyna-sampler.ogg" type="audio/ogg; codecs=opus">
+        <source src="../polonyna-sampler.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує аудіо. <a href="../polonyna-sampler.mp3">Завантажте прев'ю у форматі MP3</a>.
+      </audio>
+    </section>
+  </div>
+
+</body>
+</html>
